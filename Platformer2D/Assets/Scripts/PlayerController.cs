@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         theRB.velocity = new Vector2(moveSpeed * Input.GetAxis("Horizontal"), theRB.velocity.y);
-
+        //GetAxisRaw If not pressed will be zero if preesed will be 1 / -1 will leave as GetAxis for moment
         if(Input.GetButtonDown("Jump"))
         {
             theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
