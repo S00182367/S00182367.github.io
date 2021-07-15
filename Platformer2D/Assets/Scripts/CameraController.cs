@@ -8,15 +8,17 @@ public class CameraController : MonoBehaviour
     public Transform target;
     public Transform farBackground;
     public Transform middleBackground;
-    private float lastXPosition;
+    //private float lastXPosition;
     public float minHeight;
     public float maxHeight;
+    private Vector2 lastPos;
 
     // Start is called before the first frame update
     void Start()
     {
         //give first value
-        lastXPosition = transform.position.x;
+        //lastXPosition = transform.position.x;
+        lastPos = transform.position;
     }
 
     // Update is called once per frame
@@ -35,12 +37,14 @@ public class CameraController : MonoBehaviour
         transform.position = new Vector3(target.position.x, Mathf.Clamp(target.position.y, minHeight, maxHeight), transform.position.z);
 
         //How much the camera is moving each frame
-        float distanceToMovex = transform.position.x - lastXPosition;
+        //float distanceToMoveX = transform.position.x - lastXPosition;
+        Vector2 distanceToMove = new Vector2(transform.position.x - lastPos.x, transform.position.y - lastPos.y);
 
-        farBackground.position = farBackground.position + new Vector3(distanceToMovex, 0f, 0f);
-        middleBackground.position = middleBackground.position + new Vector3(distanceToMovex * .5f, 0f, 0f);
-      //middleBackground.position += new Vector3()  ... short cut
+        farBackground.position = farBackground.position + new Vector3(distanceToMove.x, distanceToMove.y, 0f);
+        //middleBackground.position = middleBackground.position + new Vector3(distanceToMove.x,distanceToMove.y, 0f) * .5f; ....Long way
+        middleBackground.position += new Vector3(distanceToMove.x,distanceToMove.y, 0f) * .5f;  //... short cut
 
-        lastXPosition = transform.position.x;
+        //lastXPosition = transform.position.x;
+        lastPos = transform.position;
     }
 }
