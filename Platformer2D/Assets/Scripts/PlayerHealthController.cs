@@ -71,6 +71,8 @@ public class PlayerHealthController : MonoBehaviour
 
                 //when player takes damage change the color of character to show there in ivincible at that moment
                 theSR.color = new Color(theSR.color.r, theSR.color.g, theSR.color.b, .5f); //changes the alpha colour
+
+                PlayerController.instance.KnockBack();
             }
 
             UIController.instance.UpdateHealthDisplay();

@@ -842,6 +842,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8035403956851409894, guid: dcc7ac2f15b732d4e9f888a1f9ab79fe, type: 3}
+      propertyPath: knockBackForce
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8035403956851409894, guid: dcc7ac2f15b732d4e9f888a1f9ab79fe, type: 3}
+      propertyPath: knockBackLength
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcc7ac2f15b732d4e9f888a1f9ab79fe, type: 3}
 --- !u!1 &1405484359
