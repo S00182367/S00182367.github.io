@@ -28,6 +28,9 @@ public class Checkpoint : MonoBehaviour
             CheckpointController.instance.DeactivateCheckpoints();
 
             theSR.sprite = cpOn; // activate the check point
+
+            //give the spawn point a new value of transform.position
+            CheckpointController.instance.SetSpawnPoint(transform.position);
         }
         
     }

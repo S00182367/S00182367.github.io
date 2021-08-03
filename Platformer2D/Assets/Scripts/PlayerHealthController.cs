@@ -61,8 +61,10 @@ public class PlayerHealthController : MonoBehaviour
                 //if current health should go below zero
                 currentHealth = 0; // lowest health can be is zero
 
-                //remove the player game object from the game
-                gameObject.SetActive(false);
+                //remove the player game object from the game // move to LevelManager
+               // gameObject.SetActive(false);
+
+                LevelManager.instance.RespawnPlayer();
             }
             else
             {

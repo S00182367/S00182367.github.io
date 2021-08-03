@@ -8,6 +8,8 @@ public class CheckpointController : MonoBehaviour
 
     private Checkpoint[] checkpoints; //use an array as there are to many objects to be keeping track of when it comes to checkpoints
 
+    public Vector3 spawnPoint;
+
     private void Awake()
     {
         instance = this;
@@ -18,6 +20,9 @@ public class CheckpointController : MonoBehaviour
     {
         //find all the checkpoints within the scene when the game starts
         checkpoints = FindObjectsOfType<Checkpoint>();
+
+        //spawn player where they are at the start of the level
+        spawnPoint = PlayerController.instance.transform.position;
     }
 
     // Update is called once per frame
@@ -32,5 +37,11 @@ public class CheckpointController : MonoBehaviour
         {
             checkpoints[i].ResetCheckpoint(); //checkpoints at position i run function
         }
+    }
+
+    public void SetSpawnPoint(Vector3 newSpawnPoint) //create variable to be only useed in this function
+    {
+        //Spawn point that we have stored will be equal to new spawn point
+        spawnPoint = newSpawnPoint;
     }
 }
