@@ -39,8 +39,13 @@ public class PlayerHealthController : MonoBehaviour
         //check what will happen when the player has no health
         if(currentHealth <= 0)
         {
+            //if current health should go below zero
+            currentHealth = 0; // lowest health can be is zero
+
             //remove the player game object from the game
             gameObject.SetActive(false);
         }
+
+        UIController.instance.UpdateHealthDisplay();
     }
 }
