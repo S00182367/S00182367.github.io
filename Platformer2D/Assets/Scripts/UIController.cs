@@ -16,6 +16,8 @@ public class UIController : MonoBehaviour
     public Sprite heartEmpty;
     public Sprite heartHalf;
 
+    public Text gemText;
+
     private void Awake()
     {
         instance = this;
@@ -24,7 +26,7 @@ public class UIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        UpdateGemCount(); // update the count at the start of the game
     }
 
     // Update is called once per frame
@@ -95,5 +97,11 @@ public class UIController : MonoBehaviour
                 break;
 
         }
+    }
+
+    public void UpdateGemCount()
+    {
+        //access the text element show gems collected
+        gemText.text = LevelManager.instance.gemsCollected.ToString(); // ToString Text is string gemCollected is int convert int to string
     }
 }
