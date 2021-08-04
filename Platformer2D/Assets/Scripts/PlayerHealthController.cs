@@ -14,6 +14,8 @@ public class PlayerHealthController : MonoBehaviour
 
     private SpriteRenderer theSR;
 
+    public GameObject deathEffect;
+
     //activates before void start connected to public static PlayerHealthController instance;
     private void Awake()
     {
@@ -62,7 +64,10 @@ public class PlayerHealthController : MonoBehaviour
                 currentHealth = 0; // lowest health can be is zero
 
                 //remove the player game object from the game // move to LevelManager
-               // gameObject.SetActive(false);
+                // gameObject.SetActive(false);
+
+                //create a new copy of an object using Instantiate, bring to Player position and add rotation
+                Instantiate(deathEffect, transform.position, transform.rotation);
 
                 LevelManager.instance.RespawnPlayer();
             }
