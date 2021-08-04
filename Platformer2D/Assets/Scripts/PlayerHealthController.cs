@@ -80,6 +80,8 @@ public class PlayerHealthController : MonoBehaviour
                 theSR.color = new Color(theSR.color.r, theSR.color.g, theSR.color.b, .5f); //changes the alpha colour
 
                 PlayerController.instance.KnockBack();
+
+                AudioManager.instance.PlaySFX(9); //play sound effect
             }
 
             UIController.instance.UpdateHealthDisplay();

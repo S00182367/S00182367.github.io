@@ -47,6 +47,9 @@ public class Stompbox : MonoBehaviour
                 //spawn in pickup in position
                 Instantiate(collectible, other.transform.position, other.transform.rotation);
             }
+
+            //play sound effect element when enemy is destroyed
+            AudioManager.instance.PlaySFX(3);
         }
     }
 }

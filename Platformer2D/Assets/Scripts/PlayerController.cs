@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
                 if (isGrounded) //Check if player is on the ground
                 {
                     theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
+                    AudioManager.instance.PlaySFX(10); //play sound effect
                 }
                 else
                 {
@@ -67,6 +68,7 @@ public class PlayerController : MonoBehaviour
                     {
                         theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
                         canDoubleJump = false;
+                        AudioManager.instance.PlaySFX(10);//play sound effect
                     }
                 }
             }
@@ -110,5 +112,7 @@ public class PlayerController : MonoBehaviour
     {
         //tell rigidbody to move player up into the air
         theRB.velocity = new Vector2(theRB.velocity.x, bounceForce);
+
+        AudioManager.instance.PlaySFX(10);//add sound effect
     }
 }

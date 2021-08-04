@@ -36,6 +36,7 @@ public class LevelManager : MonoBehaviour
     private IEnumerator RespawnCo()//coRouting happens outside the game update
     {
         PlayerController.instance.gameObject.SetActive(false);//deactivate player
+        AudioManager.instance.PlaySFX(8); //play sound effect
 
         yield return new WaitForSeconds(waitToRespawn);//wait 
 

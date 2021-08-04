@@ -39,6 +39,9 @@ public class Pickup : MonoBehaviour
                 Instantiate(pickupEffect, transform.position, transform.rotation);
 
                 UIController.instance.UpdateGemCount(); // update the UI
+
+                //play sound effect
+                AudioManager.instance.PlaySFX(6);
             }
 
             if(isHeal)
@@ -54,6 +57,9 @@ public class Pickup : MonoBehaviour
 
                     //create a new copy of an object using Instantiate, bring to health position and add rotation
                     Instantiate(pickupEffect, transform.position, transform.rotation);
+
+                    //play sound effect
+                    AudioManager.instance.PlaySFX(7);
                 }
             }
         }
