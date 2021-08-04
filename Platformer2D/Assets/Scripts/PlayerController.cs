@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     public float knockBackForce;
     private float knockBackCounter;
 
+    public float bounceForce;
+
     private void Awake()
     {
         instance = this;
@@ -102,5 +104,11 @@ public class PlayerController : MonoBehaviour
 
         //activate the KnockBack animation
         anima.SetTrigger("hurt");
+    }
+
+    public void Bounce()
+    {
+        //tell rigidbody to move player up into the air
+        theRB.velocity = new Vector2(theRB.velocity.x, bounceForce);
     }
 }
