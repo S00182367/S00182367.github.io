@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7044987369386349970
+--- !u!1 &2602158616606459556
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7044987369386349974}
-  - component: {fileID: 7044987369386349969}
-  - component: {fileID: 7044987369386349968}
-  - component: {fileID: 7044987369386349971}
+  - component: {fileID: 2602158616606459552}
+  - component: {fileID: 2602158616606459553}
+  - component: {fileID: 2602158616606459558}
+  - component: {fileID: 2602158616606459559}
   m_Layer: 0
-  m_Name: 'Checkpoint '
+  m_Name: Health Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7044987369386349974
+--- !u!4 &2602158616606459552
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7044987369386349970}
+  m_GameObject: {fileID: 2602158616606459556}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.627213, y: -0.38792157, z: 0}
+  m_LocalPosition: {x: -4.968678, y: -1.4586476, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7044987369386349969
+--- !u!212 &2602158616606459553
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7044987369386349970}
+  m_GameObject: {fileID: 2602158616606459556}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -70,42 +70,27 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1936244289
-  m_SortingLayer: -1
+  m_SortingLayerID: 1529212935
+  m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 599bb51c6d72aae4f9ab0e0dc81c3996, type: 3}
+  m_Sprite: {fileID: -90375647409325229, guid: 646c9b56df3e3c0449e1e69cb8d36fc1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.125, y: 1.25}
+  m_Size: {x: 1.125, y: 1.3125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7044987369386349968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7044987369386349970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fea6c9f15e8e3a40a54062d8d352f74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  theSR: {fileID: 7044987369386349969}
-  cpOn: {fileID: 21300000, guid: 0de9a52a86712d344adedb2493bb65d1, type: 3}
-  cpOff: {fileID: 21300000, guid: 599bb51c6d72aae4f9ab0e0dc81c3996, type: 3}
---- !u!58 &7044987369386349971
+--- !u!58 &2602158616606459558
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7044987369386349970}
+  m_GameObject: {fileID: 2602158616606459556}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -114,4 +99,19 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.07
+  m_Radius: 0.65625
+--- !u!114 &2602158616606459559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2602158616606459556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c1f431ad33a4e458515ee1b4b0e482, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGem: 0
+  isHeal: 1
+  pickupEffect: {fileID: 6409736555378169814, guid: ef1d2eaec4a6f4f489aab73a1b7c39b0, type: 3}

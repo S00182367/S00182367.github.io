@@ -9,6 +9,8 @@ public class Pickup : MonoBehaviour
 
     private bool isCollected;
 
+    public GameObject pickupEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,9 @@ public class Pickup : MonoBehaviour
                 isCollected = true; //it has been collected 
                 Destroy(gameObject); //Remove the collectable
 
+                //create a new copy of an object using Instantiate, bring to gem position and add rotation
+                Instantiate(pickupEffect, transform.position, transform.rotation);
+
                 UIController.instance.UpdateGemCount(); // update the UI
             }
 
@@ -46,6 +51,9 @@ public class Pickup : MonoBehaviour
 
                     isCollected = true; //it has been collected
                     Destroy(gameObject); //remove collectable
+
+                    //create a new copy of an object using Instantiate, bring to health position and add rotation
+                    Instantiate(pickupEffect, transform.position, transform.rotation);
                 }
             }
         }
