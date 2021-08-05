@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    public static CameraController instance;
     //Variables
     public Transform target;
     public Transform farBackground;
@@ -11,8 +12,13 @@ public class CameraController : MonoBehaviour
     //private float lastXPosition;
     public float minHeight;
     public float maxHeight;
+    public bool stopFollow;
     private Vector2 lastPos;
 
+    private void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -34,17 +40,20 @@ public class CameraController : MonoBehaviour
         //transform.position = new Vector3(transform.position.x, clampedY, transform.position.z);
 
         //shorten code above
-        transform.position = new Vector3(target.position.x, Mathf.Clamp(target.position.y, minHeight, maxHeight), transform.position.z);
+        if (!stopFollow)
+        {
+            transform.position = new Vector3(target.position.x, Mathf.Clamp(target.position.y, minHeight, maxHeight), transform.position.z);
 
-        //How much the camera is moving each frame
-        //float distanceToMoveX = transform.position.x - lastXPosition;
-        Vector2 distanceToMove = new Vector2(transform.position.x - lastPos.x, transform.position.y - lastPos.y);
+            //How much the camera is moving each frame
+            //float distanceToMoveX = transform.position.x - lastXPosition;
+            Vector2 distanceToMove = new Vector2(transform.position.x - lastPos.x, transform.position.y - lastPos.y);
 
-        farBackground.position = farBackground.position + new Vector3(distanceToMove.x, distanceToMove.y, 0f);
-        //middleBackground.position = middleBackground.position + new Vector3(distanceToMove.x,distanceToMove.y, 0f) * .5f; ....Long way
-        middleBackground.position += new Vector3(distanceToMove.x,distanceToMove.y, 0f) * .5f;  //... short cut
+            farBackground.position = farBackground.position + new Vector3(distanceToMove.x, distanceToMove.y, 0f);
+            //middleBackground.position = middleBackground.position + new Vector3(distanceToMove.x,distanceToMove.y, 0f) * .5f; ....Long way
+            middleBackground.position += new Vector3(distanceToMove.x, distanceToMove.y, 0f) * .5f;  //... short cut
 
-        //lastXPosition = transform.position.x;
-        lastPos = transform.position;
+            //lastXPosition = transform.position.x;
+            lastPos = transform.position;
+        }
     }
 }

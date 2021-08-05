@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class LevelManager : MonoBehaviour
     public float waitToRespawn;
 
     public int gemsCollected;
+
+    public string levelToLoad;
 
     private void Awake()
     {
@@ -53,5 +56,28 @@ public class LevelManager : MonoBehaviour
         PlayerHealthController.instance.currentHealth = PlayerHealthController.instance.maxHealth; //tell player healt controller to restore players health
 
         UIController.instance.UpdateHealthDisplay(); //Update the UI to show hearts refilled
+    }
+
+    public void EndLevel()
+    {
+        StartCoroutine(EndLevelCo());
+    }
+
+    //create co routine
+    public IEnumerator EndLevelCo()
+    {
+        PlayerController.instance.stopInput = true;//call player controller to stop inputs
+
+        CameraController.instance.stopFollow = true;//call camera controller to stop following
+
+        UIController.instance.levelCompleteText.SetActive(true);//call UI controller to show end level text
+
+        yield return new WaitForSeconds(1.5f);//wait to fade out
+
+        UIController.instance.FadeToBlack(); // call the UI controller
+
+        yield return new WaitForSeconds((1f / UIController.instance.fadeSpeed) + .25f);//wait for fade to finish 
+
+        SceneManager.LoadScene(levelToLoad);//load into the next level
     }
 }

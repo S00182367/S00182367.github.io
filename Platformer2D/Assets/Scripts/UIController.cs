@@ -23,6 +23,8 @@ public class UIController : MonoBehaviour
     private bool shouldFadeToBlack;
     private bool shouldFadeFromBlack;
 
+    public GameObject levelCompleteText;
+
     private void Awake()
     {
         instance = this;

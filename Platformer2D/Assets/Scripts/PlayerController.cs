@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private float knockBackCounter;
 
     public float bounceForce;
+    public bool stopInput;
 
     private void Awake()
     {
@@ -41,7 +42,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!PauseMenu.instance.isPaused)//stop player from taking inputs when paused
+        if (!PauseMenu.instance.isPaused && !stopInput)//stop player from taking inputs when paused and at level end
         {
             if (knockBackCounter <= 0)// all will only happen aslong as knockBackCounter is <= 0
             {
