@@ -41,60 +41,63 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (knockBackCounter <= 0)// all will only happen aslong as knockBackCounter is <= 0
+        if (!PauseMenu.instance.isPaused)//stop player from taking inputs when paused
         {
-
-            theRB.velocity = new Vector2(moveSpeed * Input.GetAxis("Horizontal"), theRB.velocity.y);
-            //GetAxisRaw If not pressed will be zero if preesed will be 1 / -1 will leave as GetAxis for moment
-
-            isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, .2f, whatIsGround);
-            // Stops the player from doing jumps all the time
-
-            if (isGrounded) //If the player is on the ground they can do a second jump
+            if (knockBackCounter <= 0)// all will only happen aslong as knockBackCounter is <= 0
             {
-                canDoubleJump = true;
-            }
 
-            if (Input.GetButtonDown("Jump"))
-            {
-                if (isGrounded) //Check if player is on the ground
+                theRB.velocity = new Vector2(moveSpeed * Input.GetAxis("Horizontal"), theRB.velocity.y);
+                //GetAxisRaw If not pressed will be zero if preesed will be 1 / -1 will leave as GetAxis for moment
+
+                isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, .2f, whatIsGround);
+                // Stops the player from doing jumps all the time
+
+                if (isGrounded) //If the player is on the ground they can do a second jump
                 {
-                    theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
-                    AudioManager.instance.PlaySFX(10); //play sound effect
+                    canDoubleJump = true;
                 }
-                else
+
+                if (Input.GetButtonDown("Jump"))
                 {
-                    if (canDoubleJump) //Allow the player to do a double jump
+                    if (isGrounded) //Check if player is on the ground
                     {
                         theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
-                        canDoubleJump = false;
-                        AudioManager.instance.PlaySFX(10);//play sound effect
+                        AudioManager.instance.PlaySFX(10); //play sound effect
+                    }
+                    else
+                    {
+                        if (canDoubleJump) //Allow the player to do a double jump
+                        {
+                            theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
+                            canDoubleJump = false;
+                            AudioManager.instance.PlaySFX(10);//play sound effect
+                        }
                     }
                 }
-            }
 
-            if (theRB.velocity.x < 0)
-            {
-                theSR.flipX = true; //flip the player
-            }
-            else if (theRB.velocity.x > 0)
-            {
-                theSR.flipX = false;
-            }
-        }
-        else
-        {
-            knockBackCounter -= Time.deltaTime;
-            if(!theSR.flipX) //! means not true
-            {
-                theRB.velocity = new Vector2(-knockBackForce, theRB.velocity.y); //push back to right
+                if (theRB.velocity.x < 0)
+                {
+                    theSR.flipX = true; //flip the player
+                }
+                else if (theRB.velocity.x > 0)
+                {
+                    theSR.flipX = false;
+                }
             }
             else
             {
-                theRB.velocity = new Vector2(knockBackForce, theRB.velocity.y); //push back to right
+                knockBackCounter -= Time.deltaTime;
+                if (!theSR.flipX) //! means not true
+                {
+                    theRB.velocity = new Vector2(-knockBackForce, theRB.velocity.y); //push back to right
+                }
+                else
+                {
+                    theRB.velocity = new Vector2(knockBackForce, theRB.velocity.y); //push back to right
+                }
             }
-        }
 
+        }
         anima.SetFloat("moveSpeed", Mathf.Abs(theRB.velocity.x)); //Animate the run MathF.Abs turns the number positive
         anima.SetBool("isGrounded", isGrounded); //Animate the jump
     }

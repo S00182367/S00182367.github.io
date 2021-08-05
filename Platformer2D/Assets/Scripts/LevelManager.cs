@@ -38,7 +38,13 @@ public class LevelManager : MonoBehaviour
         PlayerController.instance.gameObject.SetActive(false);//deactivate player
         AudioManager.instance.PlaySFX(8); //play sound effect
 
-        yield return new WaitForSeconds(waitToRespawn);//wait 
+        yield return new WaitForSeconds(waitToRespawn - (1f / UIController.instance.fadeSpeed));//wait 
+
+        UIController.instance.FadeToBlack(); // call on the UI controller
+
+        yield return new WaitForSeconds((1f / UIController.instance.fadeSpeed) + .2f);//fade to black
+
+        UIController.instance.FadeFromBlack(); //call on the UI controller
 
         PlayerController.instance.gameObject.SetActive(true);//reactivate player
 

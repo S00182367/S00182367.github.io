@@ -18,6 +18,11 @@ public class UIController : MonoBehaviour
 
     public Text gemText;
 
+    public Image fadeScreen;
+    public float fadeSpeed;
+    private bool shouldFadeToBlack;
+    private bool shouldFadeFromBlack;
+
     private void Awake()
     {
         instance = this;
@@ -27,12 +32,34 @@ public class UIController : MonoBehaviour
     void Start()
     {
         UpdateGemCount(); // update the count at the start of the game
+        FadeFromBlack();// fade from black when the game starts
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(shouldFadeToBlack)
+        {
+            //change the alpha value of the image using math function and move towards
+            //start at 0 go to 1 and multiply fade speed by time delta time
+            fadeScreen.color = new Color(fadeScreen.color.r, fadeScreen.color.g, fadeScreen.color.b, Mathf.MoveTowards(fadeScreen.color.a, 1f, fadeSpeed * Time.deltaTime));
+            //Tell when it should stop
+            if(fadeScreen.color.a == 1f)
+            {
+                shouldFadeToBlack = false;
+            }
+        }
+
+        if (shouldFadeFromBlack)
+        {
+            //start at 1 go to 0 and multiply fade speed by time delta time
+            fadeScreen.color = new Color(fadeScreen.color.r, fadeScreen.color.g, fadeScreen.color.b, Mathf.MoveTowards(fadeScreen.color.a, 0f, fadeSpeed * Time.deltaTime));
+            //Tell when it should stop
+            if (fadeScreen.color.a == 0f)
+            {
+                shouldFadeFromBlack = false;
+            }
+        }
     }
 
     public void UpdateHealthDisplay()
@@ -103,5 +130,19 @@ public class UIController : MonoBehaviour
     {
         //access the text element show gems collected
         gemText.text = LevelManager.instance.gemsCollected.ToString(); // ToString Text is string gemCollected is int convert int to string
+    }
+
+    public void FadeToBlack()
+    {
+        //activate 1 but make sure the other is deactivated
+        shouldFadeToBlack = true;
+        shouldFadeFromBlack = false;
+    }
+
+    public void FadeFromBlack()
+    {
+        //activate 1 but make sure the other is deactivated
+        shouldFadeFromBlack = true;
+        shouldFadeToBlack = false;
     }
 }
