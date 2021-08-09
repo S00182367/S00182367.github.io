@@ -61,8 +61,8 @@ public class LSPlayer : MonoBehaviour
                 }
             }
 
-            //check if the current point the players is at is a level
-            if(currentPoint.isLevel)
+            //check if the current point the players is at is a level and that it is not locked
+            if(currentPoint.isLevel && currentPoint.levelToLoad != "" && !currentPoint.isLocked)
             {
                 //if player presses jump botton load into a level
                 if(Input.GetButtonDown("Jump"))

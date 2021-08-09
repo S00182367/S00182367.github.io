@@ -78,6 +78,8 @@ public class LevelManager : MonoBehaviour
 
         yield return new WaitForSeconds((1f / UIController.instance.fadeSpeed) + .25f);//wait for fade to finish 
 
+        PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_unlocked", 1); //store number 1 if true 2 if false using playerPrefs
+
         SceneManager.LoadScene(levelToLoad);//load into the next level
     }
 }

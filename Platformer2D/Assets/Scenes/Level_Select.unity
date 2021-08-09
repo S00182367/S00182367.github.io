@@ -394,8 +394,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: isLocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
       propertyPath: levelToLoad
       value: Testing3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: levelToCheck
+      value: Testing2
       objectReference: {fileID: 0}
     - target: {fileID: 4341621225514070303, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
       propertyPath: m_RootOrder
@@ -666,8 +674,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: isLocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
       propertyPath: levelToLoad
       value: Testing4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: levelToCheck
+      value: Testing3
       objectReference: {fileID: 0}
     - target: {fileID: 4341621225514070303, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
       propertyPath: m_RootOrder
@@ -14792,7 +14808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.028301895, g: 0.028141696, b: 0.028141696, a: 1}
+  m_Color: {r: 0.028301895, g: 0.028141696, b: 0.028141696, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -15130,6 +15146,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
       propertyPath: levelToLoad
+      value: Testing2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: levelToCheck
       value: Testing2
       objectReference: {fileID: 0}
     - target: {fileID: 4341621225514070303, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
