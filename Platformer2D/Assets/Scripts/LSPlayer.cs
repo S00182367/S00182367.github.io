@@ -8,6 +8,10 @@ public class LSPlayer : MonoBehaviour
 
     public float moveSpeed = 10f;
 
+    private bool levelLoading;
+
+    public LSManager theManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +25,7 @@ public class LSPlayer : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, currentPoint.transform.position, moveSpeed * Time.deltaTime);
 
         //check how close player is to the current point
-        if (Vector3.Distance(transform.position, currentPoint.transform.position) < .1f) // get the distance between 2 objects
+        if (Vector3.Distance(transform.position, currentPoint.transform.position) < .1f && !levelLoading) // get the distance between 2 objects and level isent loading
         {
 
             //when player inputs direction check if the map has that point
@@ -54,6 +58,18 @@ public class LSPlayer : MonoBehaviour
                 if (currentPoint.down != null) // if the current point is not empty
                 {
                     SetNextPoint(currentPoint.down);
+                }
+            }
+
+            //check if the current point the players is at is a level
+            if(currentPoint.isLevel)
+            {
+                //if player presses jump botton load into a level
+                if(Input.GetButtonDown("Jump"))
+                {
+                    levelLoading = true;
+
+                    theManager.Loadlevel();
                 }
             }
         }
