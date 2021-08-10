@@ -7,10 +7,23 @@ public class MainMenu : MonoBehaviour
 {
     public string startScene;
 
+    public string continueScene;
+
+    public GameObject continueButton;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (PlayerPrefs.HasKey(startScene + "_unlocked"))// if the player has played a level
+        {
+            //show the continue button
+            continueButton.SetActive(true);
+        }
+        else
+        {
+            //dont show continue button
+            continueButton.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -23,6 +36,15 @@ public class MainMenu : MonoBehaviour
     {
         //load startScene
         SceneManager.LoadScene(startScene);
+
+        //delete all when starting a new game
+        PlayerPrefs.DeleteAll();
+    }
+
+    public void ContinueGame()
+    {
+        //load continue scene
+        SceneManager.LoadScene(continueScene);
     }
 
     public void QuitGame()
