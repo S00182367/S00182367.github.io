@@ -84,5 +84,8 @@ public class LSPlayer : MonoBehaviour
 
         //Tell the level select UI controller to hide the info box
         LSUIController.instance.HideInfo();
+
+        //play sound effects
+        AudioManager.instance.PlaySFX(5);
     }
 }

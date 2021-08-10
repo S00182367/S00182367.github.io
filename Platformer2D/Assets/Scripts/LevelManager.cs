@@ -69,6 +69,8 @@ public class LevelManager : MonoBehaviour
     //create co routine
     public IEnumerator EndLevelCo()
     {
+        AudioManager.instance.PlayLevelVictory();//play end level music
+
         PlayerController.instance.stopInput = true;//call player controller to stop inputs
 
         CameraController.instance.stopFollow = true;//call camera controller to stop following
@@ -79,9 +81,11 @@ public class LevelManager : MonoBehaviour
 
         UIController.instance.FadeToBlack(); // call the UI controller
 
-        yield return new WaitForSeconds((1f / UIController.instance.fadeSpeed) + .25f);//wait for fade to finish 
+        yield return new WaitForSeconds((1f / UIController.instance.fadeSpeed) + 3f);//wait for fade to finish 
 
         PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_unlocked", 1); //store number 1 if true 2 if false using playerPrefs
+
+        PlayerPrefs.SetString("CurrentLevel", SceneManager.GetActiveScene().name);
 
         if(PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "_gems"))
         {

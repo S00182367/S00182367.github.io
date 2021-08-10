@@ -40,4 +40,11 @@ public class AudioManager : MonoBehaviour
         //Tell the function the number to play from the array
         soundEffects[soundToPlay].Play();
     }
+
+    public void PlayLevelVictory()
+    {
+        //stop background music and play level end music
+        bgm.Stop();
+        levelEndMusic.Play();
+    }
 }

@@ -202,6 +202,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 22453761}
   m_CullTransparentMesh: 1
+--- !u!1001 &50566480
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6831543624287691188, guid: e92061f56c99c624c814a3727d3d7920, type: 3}
+      propertyPath: bgm
+      value: 
+      objectReference: {fileID: 1032471201}
+    - target: {fileID: 6831543624287691189, guid: e92061f56c99c624c814a3727d3d7920, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831543624287691189, guid: e92061f56c99c624c814a3727d3d7920, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 47.077175
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831543624287691189, guid: e92061f56c99c624c814a3727d3d7920, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.0827184
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831543624287691189, guid: e92061f56c99c624c814a3727d3d7920, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.875177
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831543624287691189, guid: e92061f56c99c624c814a3727d3d7920, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831543624287691189, guid: e92061f56c99c624c814a3727d3d7920, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831543624287691189, guid: e92061f56c99c624c814a3727d3d7920, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831543624287691189, guid: e92061f56c99c624c814a3727d3d7920, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831543624287691189, guid: e92061f56c99c624c814a3727d3d7920, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831543624287691189, guid: e92061f56c99c624c814a3727d3d7920, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831543624287691189, guid: e92061f56c99c624c814a3727d3d7920, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831543624287691191, guid: e92061f56c99c624c814a3727d3d7920, type: 3}
+      propertyPath: m_Name
+      value: Audio manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831543624553337095, guid: e92061f56c99c624c814a3727d3d7920, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e92061f56c99c624c814a3727d3d7920, type: 3}
 --- !u!1001 &79059669
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -220,6 +285,26 @@ PrefabInstance:
     - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
       propertyPath: isLevel
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: levelName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: totalGems
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: targetTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: levelToLoad
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: levelToCheck
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4341621225514070303, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
       propertyPath: m_RootOrder
@@ -387,6 +472,30 @@ PrefabInstance:
       propertyPath: left
       value: 
       objectReference: {fileID: 1586072552}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: isLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: levelName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: totalGems
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: targetTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: levelToLoad
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: levelToCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4341621225514070303, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1110,7 +1219,7 @@ RectTransform:
   - {fileID: 1227970500}
   - {fileID: 1499207602}
   m_Father: {fileID: 1198421219}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1537,8 +1646,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1864250831}
   - {fileID: 994571435}
+  - {fileID: 1864250831}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15195,6 +15304,30 @@ PrefabInstance:
       propertyPath: right
       value: 
       objectReference: {fileID: 389957418}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: isLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: levelName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: totalGems
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: targetTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: levelToLoad
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: levelToCheck
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4341621225514070303, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -15572,7 +15705,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1198421219}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -15943,36 +16076,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 536476818}
     - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
-      propertyPath: isLevel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
-      propertyPath: bestTime
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
-      propertyPath: levelName
-      value: '1: Lets Get Started'
-      objectReference: {fileID: 0}
-    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
       propertyPath: totalGems
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
-      propertyPath: targetTime
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
-      propertyPath: levelToLoad
-      value: Testing2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
-      propertyPath: levelToCheck
-      value: Testing2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
-      propertyPath: gemsCollected
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4341621225514070303, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
       propertyPath: m_RootOrder

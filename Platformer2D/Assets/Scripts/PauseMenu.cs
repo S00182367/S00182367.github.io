@@ -51,6 +51,8 @@ public class PauseMenu : MonoBehaviour
 
     public void LevelSelect()
     {
+        PlayerPrefs.SetString("CurrentLevel", SceneManager.GetActiveScene().name);
+
         //load level select
         SceneManager.LoadScene(levelSelect);
         //so the game dosent start paused

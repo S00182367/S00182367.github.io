@@ -16,6 +16,9 @@ public class MapPoint : MonoBehaviour
     public float bestTime;
     public float targetTime;
 
+    public GameObject gemBadge;
+    public GameObject timeBadge;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +33,18 @@ public class MapPoint : MonoBehaviour
             if(PlayerPrefs.HasKey(levelToLoad + "_time"))
             {
                 bestTime = PlayerPrefs.GetFloat(levelToLoad + "_time");
+            }
+
+            //display gem badge if all gems collected
+            if(gemsCollected >= totalGems)
+            {
+                gemBadge.SetActive(true);
+            }
+
+            //display time badge if time is less the target time and is not 0
+            if(bestTime <= targetTime && bestTime != 0)
+            {
+                timeBadge.SetActive(true);
             }
 
             isLocked = true; 
