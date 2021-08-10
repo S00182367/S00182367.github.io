@@ -102,4 +102,21 @@ public class PlayerHealthController : MonoBehaviour
         //show on the UI what has happened by updating it
         UIController.instance.UpdateHealthDisplay();
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        //allow player to stick to moving platform
+        if(other.gameObject.tag == "Platform")
+        {
+            transform.parent = other.transform;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)//stop player movement when not on the moving platform
+    {
+        if(other.gameObject.tag == "Platform")
+        {
+            transform.parent = null;
+        }
+    }
 }
