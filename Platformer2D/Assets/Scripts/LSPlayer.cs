@@ -64,6 +64,9 @@ public class LSPlayer : MonoBehaviour
             //check if the current point the players is at is a level and that it is not locked
             if(currentPoint.isLevel && currentPoint.levelToLoad != "" && !currentPoint.isLocked)
             {
+                //Tell the level select UI controller to show the info box on players current point
+                LSUIController.instance.ShowInfo(currentPoint);
+
                 //if player presses jump botton load into a level
                 if(Input.GetButtonDown("Jump"))
                 {
@@ -78,5 +81,8 @@ public class LSPlayer : MonoBehaviour
     public void  SetNextPoint(MapPoint nextPoint)
     {
         currentPoint = nextPoint; // set current point to next point
+
+        //Tell the level select UI controller to hide the info box
+        LSUIController.instance.HideInfo();
     }
 }

@@ -9,6 +9,7 @@ public class MapPoint : MonoBehaviour
     public bool isLocked;
     public string levelToLoad;
     public string levelToCheck;
+    public string levelName;
 
     // Start is called before the first frame update
     void Start()
