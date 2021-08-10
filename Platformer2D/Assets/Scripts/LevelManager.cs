@@ -13,6 +13,8 @@ public class LevelManager : MonoBehaviour
 
     public string levelToLoad;
 
+    public float timeInLevel;
+
     private void Awake()
     {
         instance = this;
@@ -21,13 +23,14 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //time always starts at 0
+        timeInLevel = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        timeInLevel += Time.deltaTime;
     }
 
     //Respawn player function
@@ -79,6 +82,30 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds((1f / UIController.instance.fadeSpeed) + .25f);//wait for fade to finish 
 
         PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_unlocked", 1); //store number 1 if true 2 if false using playerPrefs
+
+        if(PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "_gems"))
+        {
+            if(gemsCollected > PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + "_gems")) //check if gems is better score
+            {
+                PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_gems", gemsCollected); //store name of the level and the gems 
+            }
+        }
+        else
+        {
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_gems", gemsCollected); //store name of the level and the gems 
+        }
+
+        if(PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "_time")) //check if time is better score
+        {
+            if(timeInLevel < PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name + "_time"))
+            {
+                PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + "_time", timeInLevel); //store name of level and the time 
+            }
+        }
+        else
+        {
+            PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + "_time", timeInLevel); //store name of level and the time 
+        }
 
         SceneManager.LoadScene(levelToLoad);//load into the next level
     }
