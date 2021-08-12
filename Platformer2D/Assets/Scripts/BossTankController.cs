@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossTankController : MonoBehaviour
 {
-    public enum bossStates { shooting, hurt, moving };
+    public enum bossStates { shooting, hurt, moving, ended };
     public bossStates currentState;
 
     public Transform theBoss;
@@ -14,6 +14,10 @@ public class BossTankController : MonoBehaviour
     public float moveSpeed;
     public Transform leftPoint, rightPoint;
     private bool moveRight;
+    public GameObject mine;
+    public Transform minePoint;
+    public float timeBetweenMines;
+    private float mineCounter;
 
     [Header("Shooting")]
     public GameObject bullet;
@@ -24,6 +28,13 @@ public class BossTankController : MonoBehaviour
     [Header("Hurt")]
     public float hurtTime;
     private float hurtCounter;
+    public GameObject hitBox;
+
+    [Header("Health")]
+    public int health = 5;
+    public GameObject explosion;
+    private bool isDefeated;
+    public float shotSpeedUp, mineSpeedUp;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +49,20 @@ public class BossTankController : MonoBehaviour
         //use switch to go through different states
         switch(currentState)
         {
+            case bossStates.shooting:
+
+                shotCounter -= Time.deltaTime;
+
+                if(shotCounter <=0) // shoot bullet
+                {
+                    shotCounter = timeBetweenShots;
+
+                    var newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation);
+                    newBullet.transform.localScale = theBoss.localScale;
+                }
+
+                break;
+
             case bossStates.hurt:
 
                 if(hurtCounter > 0) //Hurt Boss
@@ -47,6 +72,16 @@ public class BossTankController : MonoBehaviour
                     if(hurtCounter < 0)
                     {
                         currentState = bossStates.moving;
+
+                        mineCounter = 0;
+
+                        if(isDefeated)
+                        {
+                            theBoss.gameObject.SetActive(false);
+                            Instantiate(explosion, theBoss.position, theBoss.rotation);
+
+                            currentState = bossStates.ended;
+                        }
                     }
                 }
                 break;
@@ -63,9 +98,7 @@ public class BossTankController : MonoBehaviour
 
                         moveRight = false;
 
-                        currentState = bossStates.shooting;
-
-                        shotCounter = timeBetweenShots;
+                        EndMovement(); //call end movement function
                     }
                 }
                 else
@@ -78,10 +111,17 @@ public class BossTankController : MonoBehaviour
 
                         moveRight = true;
 
-                        currentState = bossStates.shooting;
-
-                        shotCounter = timeBetweenShots;
+                        EndMovement(); //call end movement function
                     }
+                }
+
+                mineCounter -= Time.deltaTime;
+
+                if(mineCounter <= 0)
+                {
+                    mineCounter = timeBetweenMines;
+
+                    Instantiate(mine, minePoint.position, minePoint.rotation);
                 }
 
                 break;
@@ -96,9 +136,43 @@ public class BossTankController : MonoBehaviour
 #endif
     }
 
-    public void TakeHit()
+    public void TakeHit() //boss takes a hit function
     {
         currentState = bossStates.hurt;
         hurtCounter = hurtTime;
+
+        anim.SetTrigger("Hit");
+
+        BossTankMine[] mines = FindObjectsOfType<BossTankMine>();
+        if(mines.Length > 0)
+        {
+            foreach(BossTankMine foundMine in mines)
+            {
+                foundMine.Explode(); // call on explode function
+            }
+        }
+
+        health--;
+
+        if(health <= 0)
+        {
+            isDefeated = true;
+        }
+        else
+        {
+            timeBetweenShots /= shotSpeedUp;// speed up when hit
+            timeBetweenMines /= mineSpeedUp;// speed up when hit
+        }
+    }
+
+    private void EndMovement() //stop boss movement function
+    {
+        currentState = bossStates.shooting;
+
+        shotCounter = 0f;
+
+        anim.SetTrigger("StopMoving");
+
+        hitBox.SetActive(true);
     }
 }
