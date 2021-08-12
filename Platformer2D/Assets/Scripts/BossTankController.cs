@@ -40,7 +40,7 @@ public class BossTankController : MonoBehaviour
         {
             case bossStates.hurt:
 
-                if(hurtCounter > 0)
+                if(hurtCounter > 0) //Hurt Boss
                 {
                     hurtCounter -= Time.deltaTime;
 
@@ -49,6 +49,41 @@ public class BossTankController : MonoBehaviour
                         currentState = bossStates.moving;
                     }
                 }
+                break;
+
+            case bossStates.moving:
+
+                if(moveRight) 
+                {
+                    theBoss.position += new Vector3(moveSpeed * Time.deltaTime, 0f, 0f);
+
+                    if(theBoss.position.x > rightPoint.position.x)//Move Boss right
+                    {
+                        theBoss.localScale = new Vector3(1f, 1f, 1f);//flip boss ...short cut vector3.one
+
+                        moveRight = false;
+
+                        currentState = bossStates.shooting;
+
+                        shotCounter = timeBetweenShots;
+                    }
+                }
+                else
+                {
+                    theBoss.position -= new Vector3(moveSpeed * Time.deltaTime, 0f, 0f);
+
+                    if (theBoss.position.x < leftPoint.position.x)//Move Boss left
+                    {
+                        theBoss.localScale = new Vector3(-1f, 1f, 1f);//flip boss 
+
+                        moveRight = true;
+
+                        currentState = bossStates.shooting;
+
+                        shotCounter = timeBetweenShots;
+                    }
+                }
+
                 break;
         }
 
