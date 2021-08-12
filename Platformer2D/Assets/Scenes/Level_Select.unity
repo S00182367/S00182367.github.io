@@ -15727,6 +15727,26 @@ PrefabInstance:
       propertyPath: isLevel
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: levelName
+      value: 'Boss: Tank'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: totalGems
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: targetTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: levelToLoad
+      value: Boss-1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981067771343914713, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
+      propertyPath: levelToCheck
+      value: Testing2
+      objectReference: {fileID: 0}
     - target: {fileID: 4341621225514070303, guid: 48be6356be5e62f4d80707270644aad3, type: 3}
       propertyPath: m_RootOrder
       value: 12

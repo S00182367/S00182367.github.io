@@ -27,12 +27,16 @@ public class BossTankMine : MonoBehaviour
             Instantiate(explosion, transform.position, transform.rotation);
 
             PlayerHealthController.instance.DealDamage();
+
+            AudioManager.instance.PlaySFX(3);
         }
     }
 
     public void Explode()
     {
         Destroy(gameObject);
+
+        AudioManager.instance.PlaySFX(3);
 
         Instantiate(explosion, transform.position, transform.rotation);
     }

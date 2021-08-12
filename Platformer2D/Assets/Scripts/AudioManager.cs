@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource bgm;
     public AudioSource levelEndMusic;
+    public AudioSource bossMusic;
 
     private void Awake()
     {
@@ -46,5 +47,17 @@ public class AudioManager : MonoBehaviour
         //stop background music and play level end music
         bgm.Stop();
         levelEndMusic.Play();
+    }
+
+    public void PlayBossMusic() // play boss music
+    {
+        bgm.Stop();
+        bossMusic.Play();
+    }
+
+    public void StopBossMusic()
+    {
+        bossMusic.Stop();
+        bgm.Play();
     }
 }

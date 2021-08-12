@@ -32,7 +32,7 @@ public class BossTankController : MonoBehaviour
 
     [Header("Health")]
     public int health = 5;
-    public GameObject explosion;
+    public GameObject explosion, winPlatform;
     private bool isDefeated;
     public float shotSpeedUp, mineSpeedUp;
 
@@ -79,6 +79,10 @@ public class BossTankController : MonoBehaviour
                         {
                             theBoss.gameObject.SetActive(false);
                             Instantiate(explosion, theBoss.position, theBoss.rotation);
+
+                            winPlatform.SetActive(true);
+
+                            AudioManager.instance.StopBossMusic();
 
                             currentState = bossStates.ended;
                         }
@@ -142,6 +146,8 @@ public class BossTankController : MonoBehaviour
         hurtCounter = hurtTime;
 
         anim.SetTrigger("Hit");
+
+        AudioManager.instance.PlaySFX(0);
 
         BossTankMine[] mines = FindObjectsOfType<BossTankMine>();
         if(mines.Length > 0)

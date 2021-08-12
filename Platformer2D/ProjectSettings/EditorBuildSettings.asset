@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_Select.unity
     guid: 8ae0d9205387fb44da7e90ee044d8c1d
+  - enabled: 1
+    path: Assets/Scenes/Boss-1.unity
+    guid: e1cfc0953bdbdb347916be56765a9ac4
+  - enabled: 1
+    path: Assets/Scenes/Victory_Screen.unity
+    guid: fa7103cd4219fbf44995d06ebc2bdc93
   m_configObjects: {}
