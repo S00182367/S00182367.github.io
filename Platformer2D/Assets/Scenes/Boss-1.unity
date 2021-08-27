@@ -8134,7 +8134,7 @@ MonoBehaviour:
   timeBetweenShots: 1.5
   hurtTime: 1
   hitBox: {fileID: 481163928}
-  health: 5
+  health: 4
   explosion: {fileID: 2067833928921859271, guid: b6814e6d8ab5d4446a5526fe3880b630, type: 3}
   winPlatform: {fileID: 1224785578}
   shotSpeedUp: 1.2
